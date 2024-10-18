@@ -4,14 +4,14 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=F1s Kernel by udyneOS
+kernel.string=j1xlte Kernel by udyneOS
 do.devicecheck=1
 do.modules=0
 do.systemless=1
-do.cleanup=1
+do.cleanup=0
 do.cleanuponabort=0
-device.name1=
-device.name2=
+device.name1=j1xlte
+device.name2=J120G
 device.name3=
 device.name4=
 device.name5=
@@ -29,7 +29,7 @@ set_perm_recursive 0 0 750 750 $RAMDISK/init* $RAMDISK/sbin;
 } # end attributes
 
 # boot shell variables
-BLOCK=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;
+BLOCK=/dev/block/platform/13540000.dwmmc0/by-name/BOOT;
 IS_SLOT_DEVICE=0;
 RAMDISK_COMPRESSION=auto;
 PATCH_VBMETA_FLAG=auto;
@@ -41,8 +41,8 @@ PATCH_VBMETA_FLAG=auto;
 dump_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
 
 # init.rc
-backup_file init.rc;
-replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
+#backup_file init.rc;
+#replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
 
 # init.tuna.rc
 #backup_file init.tuna.rc;
